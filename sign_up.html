@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <title>Sign Up</title>
+</head>
+
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box
+  }
+
+
+  input[type=text],
+  input[type=password],
+  input[type=number],
+  input[type=email] {
+    width: 100%;
+    padding: 15px;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  input[type=text]:focus,
+  input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+
+  button {
+    background-color: #1a8e48;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+
+  button:hover {
+    opacity: 1;
+  }
+
+
+  .cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+  }
+
+
+  .cancelbtn,
+  .signupbtn {
+    float: left;
+    width: 50%;
+  }
+
+
+  .container {
+    padding: 16px;
+  }
+
+
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .error {
+    color: red;
+    margin: 0px;
+    text-align: left;
+  }
+
+
+  @media screen and (max-width: 300px) {
+
+    .cancelbtn,
+    .signupbtn {
+      width: 100%;
+    }
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark p-0">
+    <div class="container p-0">
+      <a class="navbar-brand fs-1" href="#">
+        <img src="logo.jpg" alt="image" draggable="false" style="width: 50px; height: 50px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
+        <ul class="navbar-nav m-auto mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active fs-5 text-white" aria-current="page" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5 text-white" href="game_rules.html">Game Rules</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5 text-white" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5 text-white" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5 text-white" href="sign_in.html">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5 text-white" href="sign_up.html">Sign Up</a>
+          </li>
+        </ul>
+
+        <form class="d-flex" ;>
+          <input class="form-control  px-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+  </nav>
+  </div>
+
+  <div class="conatiner" style=" margin: 20px; ">
+
+    <form onsubmit="return validateForm()">
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="name" id="username">
+      <p id="userError" class="error"></p>
+
+      <label for="number"><b>Number </b></label><br>
+      <input type="number" placeholder="Enter Number" name="number" id="number">
+      <p id="numError" class="error"></p><br>
+
+
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" id="email">
+      <p id="emailError" class="error"></p><br>
+
+      <h6><strong>Gender</strong> </h6>
+      <input type="radio" id="male" name="male" value="male">
+      <label for="male">Male</label><br>
+      <input type="radio" id="Female" name="Female" value="Female">
+      <label for="Female">Female</label><br>
+
+
+      <label for="address"><strong> Address: </strong></label><br>
+      <textarea id="address" name="address" placeholder="Write something.." style="height:70px"></textarea>
+      <p id="aError" class="error"></p>
+
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id="password">
+      <p id="passError" class="error"></p>
+
+
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" id="repassword">
+      <p id="repassError" class="error"></p>
+
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+  </div>
+  </form>
+  </div>
+
+
+
+  <script>
+    let username = document.getElementById("username");
+    let number = document.getElementById("number");
+    let email = document.getElementById("email");
+
+    let address = document.getElementById("address");
+
+    let password = document.getElementById("password");
+    let repassword = document.getElementById("repassword");
+
+    let flag = 1;
+
+    function validateForm() {
+      if (username.value == "") {
+        document.getElementById("userError").innerHTML = "User Name is Empty";
+        flag = 0;
+      } else if (username.value.length < 3) {
+        document.getElementById("userError").innerHTML = "User Name require minimum 3 Char";
+        flag = 0;
+      }
+      else {
+        document.getElementById("userError").innerHTML = " ";
+        flag = 1;
+      }
+
+
+      if (number == "") {
+        document.getElementById("numError").innerHTML = "Number is Empty";
+        flag = 0;
+      } else if (number.value.length !== 10) {
+        document.getElementById("numError").innerHTML = "Number is Incompleted";
+        flag = 0;
+      } else {
+        document.getElementById("numError").innerHTML = "";
+        flag = 1;
+      }
+
+
+
+      if (email = "") {
+        document.getElementById("emailError").innerHTML = "Please enter Email Address";
+        flag = 0;
+      } else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
+        document.getElementById("emailError").innerHTML = "";
+        flag = 1;
+      } else {
+        document.getElementById("emailError").innerHTML = "Please Enter valid Email address";
+        flag = 0;
+      }
+
+
+      if (address.value == "") {
+        document.getElementById("aError").innerHTML = "Please Enter Address";
+        flag = 0;
+      } else if (address.value.length <= 7) {
+        document.getElementById("aError").innerHTML = "Enter Complete Address";
+        flag = 0;
+      } else {
+        document.getElementById("aError").innerHTML = "";
+        flag = 1;
+      }
+
+
+
+      if (password.value == "") {
+        document.getElementById("passError").innerHTML = "Password is Empty";
+        flag = 0;
+      } else {
+        document.getElementById("passError").innerHTML = " ";
+        flag = 1;
+      }
+
+
+      if (repassword.value == "") {
+        document.getElementById("repassError").innerHTML = "Password is Empty";
+        flag = 0;
+      } 
+      else if (repassword.value !== password.value) {
+        document.getElementById("repassError").innerHTML = "Repeat Password is not same as Password";
+        flag = 0;
+      }else if (repassword.value == password.value) {
+        document.getElementById("repassError").innerHTML = " ";
+        flag = 1;
+      }
+      else {
+        document.getElementById("repassError").innerHTML = " ";
+        flag = 1;
+      }
+
+      if (flag) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+  </script>
+</body>
+
+</html>
